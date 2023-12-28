@@ -138,9 +138,9 @@ main #homepage .modal {
 main #homepage .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  padding: 2em;
+  border: 0.1 solid #888;
+  width: 50%;
   display: flex;
   flex-direction: column;
   border-bottom: 0.05em solid rgb(219, 217, 217);
@@ -245,6 +245,18 @@ header nav ul #subNav li {
 header nav ul #subNav li:hover {
   background-color: rgb(243, 236, 236);
   border-radius: 0.8em;
+}
+
+/* LOGIN PAGE */
+#login {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/imgs/backgroundLogin.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+#login main {
+  display: flex;
 }
 
 body {

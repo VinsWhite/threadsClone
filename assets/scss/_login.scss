@@ -1,0 +1,15 @@
+/* LOGIN PAGE */
+@import '../scss/variables';
+@import '../scss/mixins';
+
+#login {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/imgs/backgroundLogin.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    main {
+        display: flex;
+    }
+}

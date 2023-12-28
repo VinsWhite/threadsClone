@@ -1,0 +1,57 @@
+/* HEADER */
+@import '../scss/variables';
+@import '../scss/mixins';
+
+header {
+    padding: 0 2em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    opacity: 1;
+    backdrop-filter: blur(4em);
+
+    user-select: none;
+    cursor: pointer;
+
+    nav {
+        img {
+            width: $imgNavWidth;
+            padding: 1.3em 0;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            #iconT {
+                img {
+                    width: $imgThreads;
+                    transition: transform 0.3s ease; //transition che avvia il transform sull'hover
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            
+            #subNav {
+                display: flex;
+                justify-content: center;
+
+                li {
+                    padding: 0 2.4em;
+                    margin: 0;
+                    transition: background-color 0.2s ease;
+                    border-radius: 0.8em;
+                    
+                    &:hover {
+                        background-color: rgb(243, 236, 236);
+                        border-radius: 0.8em;
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Say more with Threads — Instagram's new text app." >
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/script/script.js"></script>
+    <link rel="icon" href="assets/img/imgs/logo.png">
+    <title>Threads</title>
+</head>
+<body>
+    
+    <!-- ------------------------- HEADER ------------------------>
+    <header>
+        <!-- ------------------------- BARRA DI NAVIGAZIONE ------------------------>
+        <nav>
+            <ul>
+                <div>
+                    <li id="iconT"><img src="assets/img/icons/iconT.webp" alt="icona threads"></li>
+                </div>
+
+                <div id="subNav">
+                    <li><img src="assets/img/icons/home.png" alt="homepage"></li>
+                    <li><img src="assets/img/icons/magnifying-glass (1).png" alt="search"></li>
+                    <li><img src="assets/img/icons/edit.png" alt="writing"></li>
+                    <li><img src="assets/img/icons/heart.png" alt="activity"></li>
+                    <li><img src="assets/img/icons/user (1).png" alt="acount"></li>
+                </div>
+
+                <div>
+                    <li><img src="assets/img/icons/more.png" alt="altro"></li>
+                </div>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ------------------------- MAIN (CORPO PRINCIPALE) ------------------------>
+    <main>
+        <!-- ------------------------- 1. HOMEPAGE ------------------------>
+        <div id="homepage">
+            <!-- pulsante "per te" -->
+            <button id="foryou">Per te <img src="assets/img/icons/flip.png" alt="frecce"></button>
+            <!-- ------------------------- 1.1 POST BAR (barra per aggiungere un post)------------------------>
+            <section>
+                <div>
+                    <a href="#"><img src="assets/img/imgs/logo.png" alt="img"></a>
+                    <p id="avviaUnThread">Avvia un thread...</p>
+                </div>
+                <button>Pubblica</button>
+            </section>
+
+            <!-- Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div>
+                        <a href="#"><img src="assets/img/imgs/logo.png" alt="img"></a>
+                        <div id="contenitoreUtente">
+                            <p>Nome Utente</p>
+                            <input type="text" name="fname" placeholder="Avvia un thread...">
+                        </div>
+                    </div>
+                    
+                    <!-- aggiungi foto, hashtag e sondaggio -->
+                    <div>
+                        <img title="Allega contenuto multimediale" src="assets/img/icons/image-gallery.png" alt="aggiungi contenuti multimediali">
+                        <img title="Aggiungi un tag" src="assets/img/icons/hashtag.png" alt="aggiungi hashtag">
+                        <img title="Aggiungi un sondaggio" src="assets/img/icons/poll.png" alt="aggiungi un sondaggio">
+                    </div>
+
+                    <div>
+                        <select name="privacy" id="privacy">
+                            <option hidden value="choice">I tuoi followers possono rispondere</option>
+                            <option value="followers">I tuoi followers</option>
+                            <option value="following">Profili che segui</option>
+                            <option value="mention">Solo profili menzionati</option>
+                        </select>
+
+                        <button>Pubblica</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ------------------------- 2. SEARCH ------------------------>
+        <div id="search">
+            <p>Sono nella pagina di cerca</p>
+        </div>
+
+        <!-- ------------------------- 3. WRITE ------------------------>
+        <div id="write">
+            <p>Sono nella pagina di write</p>
+        </div>
+
+        <!-- ------------------------- 4. ACTIVITY ------------------------>
+        <div id="activity">
+            <p>Sono nella pagina di activity</p>
+        </div>
+
+        <!-- ------------------------- 5. ACCOUNT ------------------------>
+        <div id="account">
+            <p>Sono nella pagina di account</p>
+       </div>
+    </main>
+
+</body>
+</html>

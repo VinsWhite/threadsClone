@@ -1,0 +1,180 @@
+/* MAIN */
+@import '../scss/variables';
+@import '../scss/mixins';
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* HOMEPAGE */
+    #homepage {
+        width: 45%;
+        #foryou {
+            /* border: 0.1em solid black; */
+            border: 0;
+            border-radius: 2em;
+            padding: 1.1em 1.3em;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            box-shadow: 0.1em 0.1em 2em 0.3em rgba(146, 146, 155, 0.2);
+
+            font-size: $fontMain;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+
+            position: fixed;
+            left: 2em;
+            bottom: 2em;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1)
+            }
+
+            img {
+                width: 1em;
+                padding-left: 0.5em;
+            }
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 0.05em solid rgb(219, 217, 217);
+            padding-bottom: 1em;
+
+            div {
+                display: flex;
+                align-items: center;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+
+                img {
+                    width: 2em;
+                    border-radius: 1em;
+                }
+            }
+
+            p {
+                color: rgb(191, 186, 186);
+                padding-left: 1em;
+                user-select: none;
+                cursor: text;
+            }
+
+            button {
+                border: 0;
+                color: white;
+                font-weight: bold;
+                background-color: rgb(183, 176, 176);
+                padding: 0.5em 1em;
+                border-radius: 2em;
+
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        /* CSS per la modal */
+            .modal {
+                display: none; /* Inizialmente nascosta */
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.4);
+            }
+            
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+
+                display: flex;
+                flex-direction: column;
+                border-bottom: 0.05em solid rgb(219, 217, 217);
+                padding-bottom: 1em;
+                border-radius: 1em;
+
+                #contenitoreUtente {
+                    display: flex;
+                    flex-direction: column;
+                } 
+
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+
+                    img {
+                        width: 2em;
+                        border-radius: 1em;
+                    }
+                }
+
+                input {
+                    color: rgb(191, 186, 186);
+                    padding-left: 1em;
+                    border: 0;
+                    user-select: none;
+                    cursor: text;
+                }
+
+                button {
+                    border: 0;
+                    color: white;
+                    font-weight: bold;
+                    background-color: rgb(183, 176, 176);
+                    padding: 0.5em 1em;
+                    border-radius: 2em;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: black;
+                    }
+                }
+
+                select {
+                    background-color: white;
+                    border: 0;
+                    appearance: none;
+                    color: rgb(191, 186, 186);
+
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 1em;
+                }
+            }
+            
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    }
+}
+

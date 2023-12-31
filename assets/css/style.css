@@ -254,9 +254,59 @@ header nav ul #subNav li:hover {
   background-image: url("../img/imgs/backgroundLogin.png");
   background-repeat: no-repeat;
   background-position: center top;
+  background-size: 120%;
+  display: flex;
+  justify-content: center;
 }
 #login main {
   display: flex;
+  flex-direction: column;
+}
+#login main #L1 {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+#login main #L1 h4 {
+  font-weight: bold;
+  padding: 1.5em;
+}
+#login main #L1 a {
+  color: gray;
+  text-decoration: none;
+}
+#login main #L1 button {
+  background-color: black;
+  border: 0;
+  border-radius: 0.5em;
+  color: gray;
+  padding: 1.6em 0;
+  margin: 0.8em 0;
+}
+#login main #L1 input {
+  padding: 1.5em 0;
+}
+#login main #L2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 0.05em solid rgb(170, 169, 169);
+  border-radius: 0.8em;
+  padding: 0.4em 0;
+  margin: 1em 0;
+  width: 60%;
+}
+#login main #L2 img {
+  width: 4em;
+}
+#login main #L3 {
+  display: flex;
+  justify-content: space-around;
+}
+#login main #L3 p {
+  color: gray;
+  font-size: 0.9em;
+  padding: 0 0.3em;
 }
 
 body {

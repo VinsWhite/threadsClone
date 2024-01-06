@@ -141,11 +141,11 @@ main {
                     background-color: rgb(183, 176, 176);
                     padding: 0.5em 1em;
                     border-radius: 2em;
-                    cursor: pointer;
+                    cursor: not-allowed;
 
-                    &:hover {
+                    /* &:hover {
                         background-color: black;
-                    }
+                    } */
                 }
 
                 select {

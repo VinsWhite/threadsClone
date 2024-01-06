@@ -24,12 +24,18 @@
 
             h4 {
                 font-weight: bold;
-                padding: 1.5em;
+                padding: 1em;
+            }
+
+            p {
+                color: gray;
+                @include textCenter;
             }
 
             a {
                 color: gray;
                 text-decoration: none;
+                @include textCenter;
             }
 
             button {
@@ -42,7 +48,19 @@
             }
 
             input {
-                padding: 1.5em 0;
+                padding: 1.2em 0;
+                border: 0;
+                background-color: rgb(245, 241, 241);
+                border-radius: 0.5em;
+                margin: 0.4em 0;
+            }
+
+            ::placeholder {
+                margin: 0 1em;
+            }
+
+            #email::placeholder {
+                padding: 1em;
             }
         }
 
@@ -56,6 +74,7 @@
             padding: 0.4em 0;
             margin: 1em 0;
             width: 60%;
+            font-weight: bold;
 
             img {
                 width: 4em;

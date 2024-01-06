@@ -1,3 +1,9 @@
 {
-    "users": []
+  "users": [],
+  "posts": [
+    {
+      "textThread": "prova",
+      "id": 1
+    }
+  ]
 }

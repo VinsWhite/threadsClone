@@ -45,6 +45,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    //-------------------------- PULSANTE INVIA NELLA MODALE -------------------
+    let pubblica = document.querySelector(".modal-content button");
+    let textThread = document.querySelector(".modal-content input");
+    textThread.value = "";
+    
+    textThread.addEventListener('input', function() {
+        if (textThread.value.length >= 1) {
+            pubblica.style.backgroundColor = "black";
+            pubblica.style.cursor = "pointer";
+            pubblica.removeEventListener('mouseover', setCursorNotAllowed);
+            pubblica.addEventListener('mouseover', setCursorPointer);
+        } else {
+            pubblica.style.backgroundColor = "rgb(183, 176, 176)";
+            pubblica.style.cursor = "not-allowed";
+            pubblica.removeEventListener('mouseover', setCursorPointer);
+            pubblica.addEventListener('mouseover', setCursorNotAllowed);
+        }
+    });
+    
+    
+    function setCursorPointer() {
+        this.style.cursor = "pointer";
+    }
+    
+    function setCursorNotAllowed() {
+        this.style.cursor = "not-allowed";
+    }
+    
+
 
 
     //------------------------------- EVENTI CLICK ---------------------------
@@ -56,8 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     clickAccount.addEventListener('click', AccountGenerator);
 
     foryou.addEventListener('click', switchPage);
+
+    if(pubblica) {
+        pubblica.addEventListener('click', pubblicaThread);
+    }
 })
 
+let urlApi = "http://localhost:3000/";
 let forYouClicked = false;
 
 // ------------------------- FUNZIONI ----------------------------
@@ -131,3 +165,21 @@ function switchPage() {
         forYouClicked = false;
     }
 }
+
+//funzione per pubblica il thread
+function pubblicaThread (e) {
+    e.preventDefault();
+    let textThread = document.querySelector('.modal-content input[name="fname').value;
+
+    fetch(urlApi+'posts', {
+        method: 'POST', 
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify({ textThread }) 
+    })
+    .then(response => response.json())
+    .catch(err => console.log(err))
+}
+
+/*dobbiamo fare il get del prodotto per visualizzarlo nella schermata home (quindi impostare anche un scss)
+dopo di che sistemare un po' il tutto.
+- per ora solo post di tipo testo - */ 

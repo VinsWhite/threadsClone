@@ -177,10 +177,10 @@ main #homepage .modal-content button {
   background-color: rgb(183, 176, 176);
   padding: 0.5em 1em;
   border-radius: 2em;
-  cursor: pointer;
-}
-main #homepage .modal-content button:hover {
-  background-color: black;
+  cursor: not-allowed;
+  /* &:hover {
+      background-color: black;
+  } */
 }
 main #homepage .modal-content select {
   background-color: white;
@@ -269,11 +269,16 @@ header nav ul #subNav li:hover {
 }
 #login main #L1 h4 {
   font-weight: bold;
-  padding: 1.5em;
+  padding: 1em;
+}
+#login main #L1 p {
+  color: gray;
+  text-align: center;
 }
 #login main #L1 a {
   color: gray;
   text-decoration: none;
+  text-align: center;
 }
 #login main #L1 button {
   background-color: black;
@@ -284,7 +289,17 @@ header nav ul #subNav li:hover {
   margin: 0.8em 0;
 }
 #login main #L1 input {
-  padding: 1.5em 0;
+  padding: 1.2em 0;
+  border: 0;
+  background-color: rgb(245, 241, 241);
+  border-radius: 0.5em;
+  margin: 0.4em 0;
+}
+#login main #L1 ::placeholder {
+  margin: 0 1em;
+}
+#login main #L1 #email::placeholder {
+  padding: 1em;
 }
 #login main #L2 {
   display: flex;
@@ -295,6 +310,7 @@ header nav ul #subNav li:hover {
   padding: 0.4em 0;
   margin: 1em 0;
   width: 60%;
+  font-weight: bold;
 }
 #login main #L2 img {
   width: 4em;

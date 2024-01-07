@@ -175,6 +175,58 @@ main {
                 text-decoration: none;
                 cursor: pointer;
             }
+
+        #mainPosts {
+            margin: 1em 0;
+            /* display: flex; */
+
+            #infoPosts {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding-top: 1em;
+                
+                div {
+                    display: flex;
+                    align-items: center;
+                    
+                    h3 {
+                        padding-left: 0.6em;
+                        font-weight: 700;
+                    }
+
+                    h5 {
+                        padding-right: 0.6em;
+                        color: rgb(186, 182, 182);
+                    }
+                    
+                }
+            }
+
+            img {
+                width: 1em;
+                border-radius: 1em;
+                border: 0.1em solid white;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+
+                img {
+                    width: 2em;
+                    border-radius: 1em;
+                    border: 0;
+                }
+            }
+
+            p {
+                padding-left: 2.6em;
+                color: rgb(49, 48, 48);
+                padding-bottom: 1em;
+                border-bottom: 0.05em solid rgb(219, 217, 217); /* per il momento lo mettiamo qui, poi lo spostiamo */
+            }
+        }
     }
 }
 

@@ -204,6 +204,48 @@ main #homepage .close:focus {
   text-decoration: none;
   cursor: pointer;
 }
+main #homepage #mainPosts {
+  margin: 1em 0;
+  /* display: flex; */
+}
+main #homepage #mainPosts #infoPosts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+main #homepage #mainPosts #infoPosts div {
+  display: flex;
+  align-items: center;
+}
+main #homepage #mainPosts #infoPosts div h3 {
+  padding-left: 0.6em;
+  font-weight: 700;
+}
+main #homepage #mainPosts #infoPosts div h5 {
+  padding-right: 0.6em;
+  color: rgb(186, 182, 182);
+}
+main #homepage #mainPosts img {
+  width: 1em;
+  border-radius: 1em;
+  border: 0.1em solid white;
+}
+main #homepage #mainPosts a {
+  text-decoration: none;
+  color: black;
+}
+main #homepage #mainPosts a img {
+  width: 2em;
+  border-radius: 1em;
+  border: 0;
+}
+main #homepage #mainPosts p {
+  padding-left: 2.6em;
+  color: rgb(49, 48, 48);
+  padding-bottom: 1em;
+  border-bottom: 0.05em solid rgb(219, 217, 217); /* per il momento lo mettiamo qui, poi lo spostiamo */
+}
 
 /* HEADER */
 header {

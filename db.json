@@ -4,6 +4,14 @@
     {
       "textThread": "prova",
       "id": 1
+    },
+    {
+      "textThread": "questo è il mio secondo thread",
+      "id": 2
+    },
+    {
+      "textThread": "terzo thread di prova",
+      "id": 3
     }
   ]
 }

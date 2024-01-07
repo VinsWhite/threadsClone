@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let foryou = document.querySelector("#foryou");
 
     //--------------------------- DI DEFAULT (si apre la pagina di homepage) --------------------------------
-    homepage.style.display = "block";
-    search.style.display = "none";
-    write.style.display = "none";
-    activity.style.display = "none";
-    account.style.display = "none";
+    if(homepage && search && write && activity && account) {
+        homepage.style.display = "block";
+        search.style.display = "none";
+        write.style.display = "none";
+        activity.style.display = "none";
+        account.style.display = "none";
+    }
 
 
     // -------------------------- PULSANTI DELLA NAV BAR -------------------
@@ -34,9 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Quando l'utente clicca sul testo "Avvia un thread..."
     let avviaUnThread = document.querySelector("#avviaUnThread");
-    avviaUnThread.addEventListener("click", function() {
-        modal.style.display = "block"; // Mostra la modal
-    });
+    
+    if(avviaUnThread) {
+        avviaUnThread.addEventListener("click", function() {
+            modal.style.display = "block"; // Mostra la modal
+        });
+    }
+    
 
     // Quando l'utente clicca fuori dalla modal, chiudi la modal
     window.addEventListener("click", function(event) {
@@ -48,21 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
     //-------------------------- PULSANTE INVIA NELLA MODALE -------------------
     let pubblica = document.querySelector(".modal-content button");
     let textThread = document.querySelector(".modal-content input");
-    textThread.value = "";
+    if (textThread) {
+        textThread.value = "";
     
-    textThread.addEventListener('input', function() {
-        if (textThread.value.length >= 1) {
-            pubblica.style.backgroundColor = "black";
-            pubblica.style.cursor = "pointer";
-            pubblica.removeEventListener('mouseover', setCursorNotAllowed);
-            pubblica.addEventListener('mouseover', setCursorPointer);
-        } else {
-            pubblica.style.backgroundColor = "rgb(183, 176, 176)";
-            pubblica.style.cursor = "not-allowed";
-            pubblica.removeEventListener('mouseover', setCursorPointer);
-            pubblica.addEventListener('mouseover', setCursorNotAllowed);
-        }
-    });
+        textThread.addEventListener('input', function() {
+            if (textThread.value.length >= 1) {
+                pubblica.style.backgroundColor = "black";
+                pubblica.style.cursor = "pointer";
+                pubblica.removeEventListener('mouseover', setCursorNotAllowed);
+                pubblica.addEventListener('mouseover', setCursorPointer);
+            } else {
+                pubblica.style.backgroundColor = "rgb(183, 176, 176)";
+                pubblica.style.cursor = "not-allowed";
+                pubblica.removeEventListener('mouseover', setCursorPointer);
+                pubblica.addEventListener('mouseover', setCursorNotAllowed);
+            }
+        });
+    }
+    
     
     
     function setCursorPointer() {
@@ -74,21 +83,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
+    /*------------- POST PUBBLICATI ------------- */
+    fetch(urlApi+'posts', {
+        method: 'GET'})
+    .then(response => response.json())
+    .then(posts => {
+        let mainPosts = document.querySelector("#mainPosts");
+        
+        if (mainPosts) {
+             // Costruzione dell'HTML per i post
+        let postsHTML = '';
+        posts.forEach(post => {
+            // Aggiungi il testo del post al markup HTML
+            postsHTML += `<div id="infoPosts">
+                            <div>
+                                <a href="#"><img src="assets/img/imgs/logo.png" alt="img"></a>
+                                <h3>nome utente</h3>
+                            </div>
+                            <div>
+                                <h5>1h</h5>
+                                <img id="more" src="assets/img/icons/more.png" alt="altro">
+                            </div>
+                        </div>
 
+                        <p>${post.textThread}</p>`;
+        });
+        
+        // Aggiunta del markup HTML alla sezione dei post
+        mainPosts.innerHTML = postsHTML;
+        }
+       
+    })
+    .catch(err => console.log(err))
+
+    //---------------------- PULSANTE PER ELIMINARE UN POST (selezionando il suo genitore e utilizzando il target) --------------------
+    let mainPostsContainer = document.querySelector("#mainPosts");
 
     //------------------------------- EVENTI CLICK ---------------------------
-    threadIcon.addEventListener('click', iconThreads);
-    clickHomepage.addEventListener('click', HPGeneretor);
-    clickSearch.addEventListener('click', SGenerator);
-    searchWrite.addEventListener('click', WGenerator);
-    clickActivity.addEventListener('click', ActivityGenerator);
-    clickAccount.addEventListener('click', AccountGenerator);
-
-    foryou.addEventListener('click', switchPage);
+    if (threadIcon && clickHomepage && clickSearch && searchWrite && clickActivity && clickAccount && foryou) {
+        threadIcon.addEventListener('click', iconThreads);
+        clickHomepage.addEventListener('click', HPGeneretor);
+        clickSearch.addEventListener('click', SGenerator);
+        searchWrite.addEventListener('click', WGenerator);
+        clickActivity.addEventListener('click', ActivityGenerator);
+        clickAccount.addEventListener('click', AccountGenerator);
+        foryou.addEventListener('click', switchPage);
+    }
+    
 
     if(pubblica) {
         pubblica.addEventListener('click', pubblicaThread);
     }
+
+    if (mainPostsContainer) {
+        mainPostsContainer.addEventListener('click', function(event) {
+        if (event.target && event.target.id === 'more') {
+            // Azioni da eseguire quando si clicca sull'elemento con ID "more"
+            getMore(event); // Chiamata alla funzione getMore passando l'evento
+        }
+    });
+    }
+    
 })
 
 let urlApi = "http://localhost:3000/";
@@ -180,6 +235,7 @@ function pubblicaThread (e) {
     .catch(err => console.log(err))
 }
 
-/*dobbiamo fare il get del prodotto per visualizzarlo nella schermata home (quindi impostare anche un scss)
-dopo di che sistemare un po' il tutto.
-- per ora solo post di tipo testo - */ 
+//funzione per visualizzare più info 
+function getMore () {
+    console.log("ciao");
+}

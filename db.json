@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "prova@example.com",
+      "password": "345",
+      "id": 1
+    }
+  ],
   "posts": [
     {
       "textThread": "prova",

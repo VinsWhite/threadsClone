@@ -1,6 +1,16 @@
 //DOM CONTENT LOADED - SEZIONE PRINCIPALE
 document.addEventListener('DOMContentLoaded', () => {
 
+    //----------------------- LOGIN (supponendo di esserci già registrati su instagram) ----------
+
+    let btnLogin = document.querySelector('#L1 button');
+
+    if(btnLogin){
+        btnLogin.addEventListener('click', loginEvent)
+    } 
+
+    getUserLog();
+
     //--------------------------- PAGINE --------------------------------
     let homepage = document.querySelector("#homepage");
     let search = document.querySelector("#search");
@@ -138,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mainPostsContainer) {
         mainPostsContainer.addEventListener('click', function(event) {
         if (event.target && event.target.id === 'more') {
-            // Azioni da eseguire quando si clicca sull'elemento con ID "more"
+            // Azioni da eseguire quando si clicca sull'elemento con ID more
             getMore(event); // Chiamata alla funzione getMore passando l'evento
         }
     });
@@ -236,6 +246,49 @@ function pubblicaThread (e) {
 }
 
 //funzione per visualizzare più info 
-function getMore () {
-    console.log("ciao");
+function getMore(event) {
+    let postId = event.target.dataset.postId;
+
+    if (confirm('Vuoi eliminare questo post?')) {
+        fetch(urlApi + 'posts/' + postId, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+
+                event.target.closest('.post-container').remove(); 
+                console.log('Post deleted successfully.');
+            } else {
+                console.log('Failed to delete the post.');
+            }
+        })
+        .catch(err => {
+            console.error('Error:', err);
+        });
+    }
 }
+
+//funzione per mantenere l'accesso 
+function getUserLog() {
+    let loggedIn = localStorage.getItem('UserLog')
+    if(loggedIn){
+        let userLog = JSON.parse(loggedIn);
+    }
+}
+
+//funzione per controllare l'accesso
+function loginEvent(e) {
+    e.preventDefault();
+    let email = document.querySelector('#L1 input#email').value.trim();
+    let password = document.querySelector('#L1 input#password').value.trim();
+    fetch(urlApi+'users', {
+            method: 'POST', 
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify({
+                email,
+                password
+            }) })
+        .then(response => response.json())
+        .catch(err => console.log(err))
+}
+
